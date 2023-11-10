@@ -54,6 +54,9 @@ GEM
     activerecord (7.0.8)
       activemodel (= 7.0.8)
       activesupport (= 7.0.8)
+    activerecord-sqlserver-adapter (7.0.5.1)
+      activerecord (~> 7.0.0)
+      tiny_tds
     activestorage (7.0.8)
       actionpack (= 7.0.8)
       activejob (= 7.0.8)
@@ -94,6 +97,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
+    mysql2 (0.5.5)
     net-imap (0.4.4)
       date
       net-protocol
@@ -151,6 +155,7 @@ GEM
     stringio (3.0.9)
     thor (1.3.0)
     timeout (0.4.1)
+    tiny_tds (2.1.5)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     websocket-driver (0.7.6)
@@ -162,14 +167,13 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  activerecord-sqlserver-adapter
   debug
-  pg (~> 1.1)
-  puma (~> 5.0)
-  rails (~> 7.0.8)
+  mysql2
+  pg
+  puma
+  rails
   tzinfo-data
-
-RUBY VERSION
-   ruby 3.2.2p53
 
 BUNDLED WITH
    2.4.10

@@ -76,13 +76,24 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-        'ENGINE': 'django.db.backends.postgresql',
         'HOST': '127.0.0.1',
         'NAME': 'blog_development',
-        'USER': 'postgres',
-        'PASSWORD': '',
+
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+
+        # pgsql
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'USER': 'postgres',
+        # 'PASSWORD': '',
+
+        # mssql
+        'ENGINE': 'mssql',
+        'USER': 'sa',
+        'PASSWORD': 'Pa$$w0rd',
+        'PORT': 1433,
+        'OPTIONS': {'driver': 'FreeTDS', 'host_is_server': True}
+
     }
 }
 

@@ -119,3 +119,170 @@
   ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
   [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
+  [1m[35m (2.6ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:40:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.5ms)[0m  [1m[35m          CREATE OR REPLACE FUNCTION seq_gen(shard integer) RETURNS bigint AS $$
+            BEGIN
+              RETURN (((floor(extract(epoch from clock_timestamp()) * 1000) - 1314220021721)::bigint << 23) | (shard << 10)) | mod(nextval('global_id_sequence'), 1024);
+            END;
+          $$ LANGUAGE plpgsql;
+[0m
+  ↳ lib/tasks/db.rake:55:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigint DEFAULT seq_gen(10) NOT NULL PRIMARY KEY, "title" text)[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMENT ON TABLE "posts" IS 'SHARD-10'[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
+  [1m[35mSQL (1.4ms)[0m  [1m[35mUSE [blog_development][0m
+  [1m[35mSQL (1.4ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (69.5ms)[0m  [1m[35mALTER DATABASE [blog_development] SET SINGLE_USER WITH ROLLBACK IMMEDIATE[0m
+  [1m[35mSQL (104.2ms)[0m  [1m[35mDROP DATABASE [blog_development][0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (10.5ms)[0m  [1m[35mALTER DATABASE [blog_development] SET SINGLE_USER WITH ROLLBACK IMMEDIATE[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (463.1ms)[0m  [1m[35mCREATE DATABASE [blog_development]  [0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (3.3ms)[0m  [1m[35mCREATE DATABASE [blog_development]  [0m
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [blog_development][0m
+  ↳ lib/tasks/db.rake:6:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.8ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:40:in `block (3 levels) in <top (required)>'
+  [1m[35m (28.8ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE IF EXISTS [posts][0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[35m (24.6ms)[0m  [1m[35mCREATE TABLE [posts] ([id] bigint DEFAULT (cast((DATEDIFF_BIG(MILLISECOND,'1970-01-01 00:00:00.000', SYSUTCDATETIME()) - 1314220021721) * power(2, 23) as bigint) | (10 * power(2, 10))) | ((next value for global_id_sequence) % 1024) NOT NULL PRIMARY KEY, [title] nvarchar(4000))[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE [ar_internal_metadata] ([key] nvarchar(4000) NOT NULL PRIMARY KEY, [value] nvarchar(4000), [created_at] datetime2(6) NOT NULL, [updated_at] datetime2(6) NOT NULL)[0m
+  ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (4.2ms)[0m  [1m[35mEXEC sp_executesql N'SELECT [ar_internal_metadata].* FROM [ar_internal_metadata] WHERE [ar_internal_metadata].[key] = @0 ORDER BY [ar_internal_metadata].[key] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 nvarchar(4000), @1 int', @0 = N'environment', @1 = 1[0m  [["key", nil], ["LIMIT", nil]]
+  ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mBEGIN TRANSACTION[0m
+  ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (9.4ms)[0m  [1m[35mEXEC sp_executesql N'INSERT INTO [ar_internal_metadata] ([key], [value], [created_at], [updated_at]) OUTPUT INSERTED.[key] VALUES (@0, @1, @2, @3)', N'@0 nvarchar(4000), @1 nvarchar(4000), @2 datetime2(6), @3 datetime2(6)', @0 = N'environment', @1 = N'development', @2 = '11-10-2023 15:15:44.784582', @3 = '11-10-2023 15:15:44.784582'[0m  [["key", nil], ["value", nil], ["created_at", nil], ["updated_at", nil]]
+  ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
+  [1m[35mSQL (1.5ms)[0m  [1m[35mUSE [blog_development][0m
+  ↳ lib/tasks/db.rake:6:in `block (2 levels) in <top (required)>'
+  [1m[35m (8.6ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:40:in `block (3 levels) in <top (required)>'
+  [1m[35mSQL (1.5ms)[0m  [1m[35mUSE [blog_development][0m
+  ↳ lib/tasks/db.rake:6:in `block (2 levels) in <top (required)>'
+  [1m[35m (5.5ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:40:in `block (3 levels) in <top (required)>'
+  [1m[35mSQL (1.1ms)[0m  [1m[35mUSE [blog_development][0m
+  [1m[35mSQL (0.9ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (12.9ms)[0m  [1m[35mALTER DATABASE [blog_development] SET SINGLE_USER WITH ROLLBACK IMMEDIATE[0m
+  [1m[35mSQL (42.9ms)[0m  [1m[35mDROP DATABASE [blog_development][0m
+  [1m[35mSQL (1.2ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (2.0ms)[0m  [1m[35mALTER DATABASE [blog_development] SET SINGLE_USER WITH ROLLBACK IMMEDIATE[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (386.6ms)[0m  [1m[35mCREATE DATABASE [blog_development]  [0m
+  [1m[35mSQL (1.2ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (2.0ms)[0m  [1m[35mCREATE DATABASE [blog_development]  [0m
+  [1m[35mSQL (1.1ms)[0m  [1m[35mUSE [blog_development][0m
+  [1m[35mSQL (0.9ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (13.6ms)[0m  [1m[35mALTER DATABASE [blog_development] SET SINGLE_USER WITH ROLLBACK IMMEDIATE[0m
+  [1m[35mSQL (43.9ms)[0m  [1m[35mDROP DATABASE [blog_development][0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (1.8ms)[0m  [1m[35mALTER DATABASE [blog_development] SET SINGLE_USER WITH ROLLBACK IMMEDIATE[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (355.0ms)[0m  [1m[35mCREATE DATABASE [blog_development]  [0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (1.7ms)[0m  [1m[35mCREATE DATABASE [blog_development]  [0m
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [blog_development][0m
+  ↳ lib/tasks/db.rake:6:in `block (2 levels) in <top (required)>'
+  [1m[35m (1.6ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:42:in `block (3 levels) in <top (required)>'
+  [1m[35m (5.5ms)[0m  [1m[35m          IF EXISTS(select * from sys.objects where name='Fn_SeqGen')
+            drop function dbo.Fn_SeqGen;
+          GO
+
+          CREATE FUNCTION dbo.Fn_SeqGen (@ShardId)
+          RETURNS bigint
+          AS
+          BEGIN
+            RETURN (cast((DATEDIFF_BIG(MILLISECOND,'1970-01-01 00:00:00.000', SYSUTCDATETIME()) - 1314220021721) * power(2, 23) as bigint) | (10 * power(2, 10))) | ((next value for global_id_sequence) % 1024)
+          END
+[0m
+  ↳ lib/tasks/db.rake:66:in `block (3 levels) in <top (required)>'
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [blog_development][0m
+  ↳ lib/tasks/db.rake:6:in `block (2 levels) in <top (required)>'
+  [1m[35m (4.2ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:42:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.8ms)[0m  [1m[35m          IF EXISTS(select * from sys.objects where name='Fn_SeqGen')
+            drop function dbo.Fn_SeqGen;
+
+          CREATE FUNCTION dbo.Fn_SeqGen (@ShardId)
+          RETURNS bigint
+          AS
+          BEGIN
+            RETURN (cast((DATEDIFF_BIG(MILLISECOND,'1970-01-01 00:00:00.000', SYSUTCDATETIME()) - 1314220021721) * power(2, 23) as bigint) | (10 * power(2, 10))) | ((next value for global_id_sequence) % 1024)
+          END
+[0m
+  ↳ lib/tasks/db.rake:66:in `block (3 levels) in <top (required)>'
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [blog_development][0m
+  ↳ lib/tasks/db.rake:6:in `block (2 levels) in <top (required)>'
+  [1m[35m (9.2ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:42:in `block (3 levels) in <top (required)>'
+  [1m[35m (3.0ms)[0m  [1m[35m          IF EXISTS(select * from sys.objects where name='Fn_SeqGen')
+            drop function dbo.Fn_SeqGen;
+
+          CREATE FUNCTION dbo.Fn_SeqGen (@ShardId int)
+          RETURNS bigint
+          AS
+          BEGIN
+            RETURN (cast((DATEDIFF_BIG(MILLISECOND,'1970-01-01 00:00:00.000', SYSUTCDATETIME()) - 1314220021721) * power(2, 23) as bigint) | (@ShardId * power(2, 10))) | ((next value for global_id_sequence) % 1024)
+          END
+[0m
+  ↳ lib/tasks/db.rake:66:in `block (3 levels) in <top (required)>'
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [blog_development][0m
+  ↳ lib/tasks/db.rake:6:in `block (2 levels) in <top (required)>'
+  [1m[35m (10.2ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:42:in `block (3 levels) in <top (required)>'
+  [1m[35m (15.3ms)[0m  [1m[35m          IF EXISTS(select * from sys.objects where name='Fn_SeqGen')
+            drop function dbo.Fn_SeqGen;
+[0m
+  ↳ lib/tasks/db.rake:66:in `block (3 levels) in <top (required)>'
+  [1m[35m (4.0ms)[0m  [1m[35m          CREATE FUNCTION dbo.Fn_SeqGen (@ShardId int)
+          RETURNS bigint
+          AS
+          BEGIN
+            RETURN (cast((DATEDIFF_BIG(MILLISECOND,'1970-01-01 00:00:00.000', SYSUTCDATETIME()) - 1314220021721) * power(2, 23) as bigint) | (@ShardId * power(2, 10))) | ((next value for global_id_sequence) % 1024)
+          END
+[0m
+  ↳ lib/tasks/db.rake:71:in `block (3 levels) in <top (required)>'
+  [1m[35mSQL (1.2ms)[0m  [1m[35mUSE [blog_development][0m
+  ↳ lib/tasks/db.rake:6:in `block (2 levels) in <top (required)>'
+  [1m[35m (12.2ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:42:in `block (3 levels) in <top (required)>'
+  [1m[35m (11.2ms)[0m  [1m[35mDROP TABLE IF EXISTS [posts][0m
+  ↳ lib/tasks/db.rake:81:in `block (3 levels) in <top (required)>'
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE [posts] ([id] bigint DEFAULT (cast((DATEDIFF_BIG(MILLISECOND,'1970-01-01 00:00:00.000', SYSUTCDATETIME()) - 1314220021721) * power(2, 23) as bigint) | (10 * power(2, 10))) | ((next value for global_id_sequence) % 1024) NOT NULL PRIMARY KEY, [title] nvarchar(4000))[0m
+  ↳ lib/tasks/db.rake:81:in `block (3 levels) in <top (required)>'
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE [ar_internal_metadata] ([key] nvarchar(4000) NOT NULL PRIMARY KEY, [value] nvarchar(4000), [created_at] datetime2(6) NOT NULL, [updated_at] datetime2(6) NOT NULL)[0m
+  ↳ lib/tasks/db.rake:40:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT [ar_internal_metadata].* FROM [ar_internal_metadata] WHERE [ar_internal_metadata].[key] = @0 ORDER BY [ar_internal_metadata].[key] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 nvarchar(4000), @1 int', @0 = N'environment', @1 = 1[0m  [["key", nil], ["LIMIT", nil]]
+  ↳ lib/tasks/db.rake:40:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mBEGIN TRANSACTION[0m
+  ↳ lib/tasks/db.rake:40:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (2.6ms)[0m  [1m[35mEXEC sp_executesql N'INSERT INTO [ar_internal_metadata] ([key], [value], [created_at], [updated_at]) OUTPUT INSERTED.[key] VALUES (@0, @1, @2, @3)', N'@0 nvarchar(4000), @1 nvarchar(4000), @2 datetime2(6), @3 datetime2(6)', @0 = N'environment', @1 = N'development', @2 = '11-10-2023 15:40:45.399007', @3 = '11-10-2023 15:40:45.399007'[0m  [["key", nil], ["value", nil], ["created_at", nil], ["updated_at", nil]]
+  ↳ lib/tasks/db.rake:40:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  ↳ lib/tasks/db.rake:40:in `block (2 levels) in <top (required)>'
