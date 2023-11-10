@@ -1,4 +1,4 @@
-# prj
+# tasks
 
 namespace :prj do
   desc 'Database reset'
