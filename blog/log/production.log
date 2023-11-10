@@ -1,0 +1,68 @@
+I, [2023-11-10T23:49:42.850960 #43434]  INFO -- : [39c914f5-3d5c-4e2a-8697-0b7cf1e085f0] Started GET "/posts" for 127.0.0.1 at 2023-11-10 23:49:42 +0800
+I, [2023-11-10T23:49:42.854859 #43434]  INFO -- : [39c914f5-3d5c-4e2a-8697-0b7cf1e085f0] Processing by PostsController#index as HTML
+I, [2023-11-10T23:49:43.391628 #43434]  INFO -- : [39c914f5-3d5c-4e2a-8697-0b7cf1e085f0]   Rendered posts/index.html.erb within layouts/application (Duration: 532.6ms | Allocations: 7949)
+I, [2023-11-10T23:49:43.392629 #43434]  INFO -- : [39c914f5-3d5c-4e2a-8697-0b7cf1e085f0]   Rendered layout layouts/application.html.erb (Duration: 533.7ms | Allocations: 8357)
+I, [2023-11-10T23:49:43.392998 #43434]  INFO -- : [39c914f5-3d5c-4e2a-8697-0b7cf1e085f0] Completed 200 OK in 538ms (Views: 195.7ms | ActiveRecord: 339.7ms | Allocations: 9857)
+I, [2023-11-10T23:49:44.046111 #43434]  INFO -- : [486a673e-0db7-4b33-a1a4-8405e41e0448] Started GET "/posts" for 127.0.0.1 at 2023-11-10 23:49:44 +0800
+I, [2023-11-10T23:49:44.046947 #43434]  INFO -- : [486a673e-0db7-4b33-a1a4-8405e41e0448] Processing by PostsController#index as HTML
+I, [2023-11-10T23:49:44.057454 #43434]  INFO -- : [486a673e-0db7-4b33-a1a4-8405e41e0448]   Rendered posts/index.html.erb within layouts/application (Duration: 9.6ms | Allocations: 740)
+I, [2023-11-10T23:49:44.058645 #43434]  INFO -- : [486a673e-0db7-4b33-a1a4-8405e41e0448]   Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 868)
+I, [2023-11-10T23:49:44.059005 #43434]  INFO -- : [486a673e-0db7-4b33-a1a4-8405e41e0448] Completed 200 OK in 12ms (Views: 7.5ms | ActiveRecord: 4.1ms | Allocations: 1054)
+I, [2023-11-10T23:49:45.907597 #43434]  INFO -- : [dc7dccd0-f7c2-470c-969c-e4a29d70cabe] Started GET "/posts/new" for 127.0.0.1 at 2023-11-10 23:49:45 +0800
+I, [2023-11-10T23:49:45.908392 #43434]  INFO -- : [dc7dccd0-f7c2-470c-969c-e4a29d70cabe] Processing by PostsController#new as HTML
+I, [2023-11-10T23:49:45.915567 #43434]  INFO -- : [dc7dccd0-f7c2-470c-969c-e4a29d70cabe]   Rendered posts/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1901)
+I, [2023-11-10T23:49:45.915939 #43434]  INFO -- : [dc7dccd0-f7c2-470c-969c-e4a29d70cabe]   Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 2029)
+I, [2023-11-10T23:49:45.916232 #43434]  INFO -- : [dc7dccd0-f7c2-470c-969c-e4a29d70cabe] Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 2303)
+I, [2023-11-10T23:49:53.037818 #43434]  INFO -- : [811615f9-1067-4bc8-bb28-42583fa1896b] Started POST "/posts" for 127.0.0.1 at 2023-11-10 23:49:53 +0800
+I, [2023-11-10T23:49:53.038846 #43434]  INFO -- : [811615f9-1067-4bc8-bb28-42583fa1896b] Processing by PostsController#create as HTML
+I, [2023-11-10T23:49:53.039007 #43434]  INFO -- : [811615f9-1067-4bc8-bb28-42583fa1896b]   Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"hhhhhh"}, "commit"=>"Create Post"}
+I, [2023-11-10T23:49:53.064996 #43434]  INFO -- : [811615f9-1067-4bc8-bb28-42583fa1896b] Redirected to http://localhost:3000/posts/3233064912955648011
+I, [2023-11-10T23:49:53.065190 #43434]  INFO -- : [811615f9-1067-4bc8-bb28-42583fa1896b] Completed 302 Found in 26ms (ActiveRecord: 19.9ms | Allocations: 1954)
+I, [2023-11-10T23:49:53.069392 #43434]  INFO -- : [cfc13a7b-28cc-4b90-9e08-e8833e092182] Started GET "/posts/3233064912955648011" for 127.0.0.1 at 2023-11-10 23:49:53 +0800
+I, [2023-11-10T23:49:53.070180 #43434]  INFO -- : [cfc13a7b-28cc-4b90-9e08-e8833e092182] Processing by PostsController#show as HTML
+I, [2023-11-10T23:49:53.070256 #43434]  INFO -- : [cfc13a7b-28cc-4b90-9e08-e8833e092182]   Parameters: {"id"=>"3233064912955648011"}
+I, [2023-11-10T23:49:53.077942 #43434]  INFO -- : [cfc13a7b-28cc-4b90-9e08-e8833e092182]   Rendered posts/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 806)
+I, [2023-11-10T23:49:53.078506 #43434]  INFO -- : [cfc13a7b-28cc-4b90-9e08-e8833e092182]   Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 936)
+I, [2023-11-10T23:49:53.078753 #43434]  INFO -- : [cfc13a7b-28cc-4b90-9e08-e8833e092182] Completed 200 OK in 8ms (Views: 3.0ms | ActiveRecord: 2.2ms | Allocations: 1808)
+I, [2023-11-10T23:49:54.528607 #43434]  INFO -- : [a94c588f-00fd-45ca-904f-d97daa3ac22a] Started GET "/posts" for 127.0.0.1 at 2023-11-10 23:49:54 +0800
+I, [2023-11-10T23:49:54.529367 #43434]  INFO -- : [a94c588f-00fd-45ca-904f-d97daa3ac22a] Processing by PostsController#index as HTML
+I, [2023-11-10T23:49:54.534850 #43434]  INFO -- : [a94c588f-00fd-45ca-904f-d97daa3ac22a]   Rendered posts/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 794)
+I, [2023-11-10T23:49:54.535672 #43434]  INFO -- : [a94c588f-00fd-45ca-904f-d97daa3ac22a]   Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 922)
+I, [2023-11-10T23:49:54.536201 #43434]  INFO -- : [a94c588f-00fd-45ca-904f-d97daa3ac22a] Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 1.4ms | Allocations: 1106)
+I, [2023-11-10T23:49:56.323316 #43434]  INFO -- : [51132a27-80a8-4375-9281-948f100adb9e] Started GET "/posts/new" for 127.0.0.1 at 2023-11-10 23:49:56 +0800
+I, [2023-11-10T23:49:56.324003 #43434]  INFO -- : [51132a27-80a8-4375-9281-948f100adb9e] Processing by PostsController#new as HTML
+I, [2023-11-10T23:49:56.327033 #43434]  INFO -- : [51132a27-80a8-4375-9281-948f100adb9e]   Rendered posts/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 835)
+I, [2023-11-10T23:49:56.327493 #43434]  INFO -- : [51132a27-80a8-4375-9281-948f100adb9e]   Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 963)
+I, [2023-11-10T23:49:56.327866 #43434]  INFO -- : [51132a27-80a8-4375-9281-948f100adb9e] Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 1146)
+I, [2023-11-10T23:49:58.601690 #43434]  INFO -- : [caf158a6-6903-4507-8fcb-b9013dd48e25] Started POST "/posts" for 127.0.0.1 at 2023-11-10 23:49:58 +0800
+I, [2023-11-10T23:49:58.602709 #43434]  INFO -- : [caf158a6-6903-4507-8fcb-b9013dd48e25] Processing by PostsController#create as HTML
+I, [2023-11-10T23:49:58.602848 #43434]  INFO -- : [caf158a6-6903-4507-8fcb-b9013dd48e25]   Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"wwwwwwwww"}, "commit"=>"Create Post"}
+I, [2023-11-10T23:49:58.611092 #43434]  INFO -- : [caf158a6-6903-4507-8fcb-b9013dd48e25] Redirected to http://localhost:3000/posts/3233064959504033804
+I, [2023-11-10T23:49:58.611299 #43434]  INFO -- : [caf158a6-6903-4507-8fcb-b9013dd48e25] Completed 302 Found in 8ms (ActiveRecord: 3.9ms | Allocations: 665)
+I, [2023-11-10T23:49:58.615499 #43434]  INFO -- : [849729a5-7236-490c-bb59-a98786217f35] Started GET "/posts/3233064959504033804" for 127.0.0.1 at 2023-11-10 23:49:58 +0800
+I, [2023-11-10T23:49:58.616296 #43434]  INFO -- : [849729a5-7236-490c-bb59-a98786217f35] Processing by PostsController#show as HTML
+I, [2023-11-10T23:49:58.616370 #43434]  INFO -- : [849729a5-7236-490c-bb59-a98786217f35]   Parameters: {"id"=>"3233064959504033804"}
+I, [2023-11-10T23:49:58.621427 #43434]  INFO -- : [849729a5-7236-490c-bb59-a98786217f35]   Rendered posts/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 604)
+I, [2023-11-10T23:49:58.621774 #43434]  INFO -- : [849729a5-7236-490c-bb59-a98786217f35]   Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 732)
+I, [2023-11-10T23:49:58.621988 #43434]  INFO -- : [849729a5-7236-490c-bb59-a98786217f35] Completed 200 OK in 6ms (Views: 2.2ms | ActiveRecord: 1.2ms | Allocations: 1030)
+I, [2023-11-10T23:50:00.067229 #43434]  INFO -- : [b965f5ec-f52b-4062-92d1-de9855f52e71] Started GET "/posts" for 127.0.0.1 at 2023-11-10 23:50:00 +0800
+I, [2023-11-10T23:50:00.068109 #43434]  INFO -- : [b965f5ec-f52b-4062-92d1-de9855f52e71] Processing by PostsController#index as HTML
+I, [2023-11-10T23:50:00.074633 #43434]  INFO -- : [b965f5ec-f52b-4062-92d1-de9855f52e71]   Rendered posts/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 900)
+I, [2023-11-10T23:50:00.075067 #43434]  INFO -- : [b965f5ec-f52b-4062-92d1-de9855f52e71]   Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 1028)
+I, [2023-11-10T23:50:00.075398 #43434]  INFO -- : [b965f5ec-f52b-4062-92d1-de9855f52e71] Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 1.2ms | Allocations: 1212)
+I, [2023-11-10T23:50:21.984443 #43434]  INFO -- : [678846d0-8ab7-4ccf-924c-e7470498c68d] Started GET "/posts/new" for 127.0.0.1 at 2023-11-10 23:50:21 +0800
+I, [2023-11-10T23:50:21.985167 #43434]  INFO -- : [678846d0-8ab7-4ccf-924c-e7470498c68d] Processing by PostsController#new as HTML
+I, [2023-11-10T23:50:21.988365 #43434]  INFO -- : [678846d0-8ab7-4ccf-924c-e7470498c68d]   Rendered posts/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 855)
+I, [2023-11-10T23:50:21.989105 #43434]  INFO -- : [678846d0-8ab7-4ccf-924c-e7470498c68d]   Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 987)
+I, [2023-11-10T23:50:21.989369 #43434]  INFO -- : [678846d0-8ab7-4ccf-924c-e7470498c68d] Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 1170)
+I, [2023-11-10T23:50:24.855289 #43434]  INFO -- : [2865561b-7f01-4fc6-9c35-cfab059fa564] Started POST "/posts" for 127.0.0.1 at 2023-11-10 23:50:24 +0800
+I, [2023-11-10T23:50:24.856101 #43434]  INFO -- : [2865561b-7f01-4fc6-9c35-cfab059fa564] Processing by PostsController#create as HTML
+I, [2023-11-10T23:50:24.856210 #43434]  INFO -- : [2865561b-7f01-4fc6-9c35-cfab059fa564]   Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"rrrrrrrr"}, "commit"=>"Create Post"}
+I, [2023-11-10T23:50:24.867623 #43434]  INFO -- : [2865561b-7f01-4fc6-9c35-cfab059fa564] Redirected to http://localhost:3000/posts/3233065179746936845
+I, [2023-11-10T23:50:24.867843 #43434]  INFO -- : [2865561b-7f01-4fc6-9c35-cfab059fa564] Completed 302 Found in 11ms (ActiveRecord: 6.6ms | Allocations: 677)
+I, [2023-11-10T23:50:24.872241 #43434]  INFO -- : [ae535546-0a57-45f0-a52d-562b3335dafb] Started GET "/posts/3233065179746936845" for 127.0.0.1 at 2023-11-10 23:50:24 +0800
+I, [2023-11-10T23:50:24.873059 #43434]  INFO -- : [ae535546-0a57-45f0-a52d-562b3335dafb] Processing by PostsController#show as HTML
+I, [2023-11-10T23:50:24.873135 #43434]  INFO -- : [ae535546-0a57-45f0-a52d-562b3335dafb]   Parameters: {"id"=>"3233065179746936845"}
+I, [2023-11-10T23:50:24.887770 #43434]  INFO -- : [ae535546-0a57-45f0-a52d-562b3335dafb]   Rendered posts/show.html.erb within layouts/application (Duration: 10.4ms | Allocations: 580)
+I, [2023-11-10T23:50:24.888225 #43434]  INFO -- : [ae535546-0a57-45f0-a52d-562b3335dafb]   Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 709)
+I, [2023-11-10T23:50:24.888460 #43434]  INFO -- : [ae535546-0a57-45f0-a52d-562b3335dafb] Completed 200 OK in 15ms (Views: 11.3ms | ActiveRecord: 2.1ms | Allocations: 1008)
