@@ -1,2 +1,121 @@
   [1m[35m (244.4ms)[0m  [1m[35mCREATE DATABASE "blog_development" ENCODING = 'unicode'[0m
   [1m[35m (75.4ms)[0m  [1m[35mCREATE DATABASE "blog_test" ENCODING = 'unicode'[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:40:in `block (3 levels) in <top (required)>'
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "posts" ("bkid" bigint DEFAULT  NOT NULL PRIMARY KEY, "title" )[0m
+  ↳ lib/tasks/db.rake:63:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:40:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.3ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:40:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigint DEFAULT  NOT NULL PRIMARY KEY, "title" )[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[35m (3.6ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:40:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "posts" ("true" bigint DEFAULT  NOT NULL PRIMARY KEY, "title" )[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.6ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:42:in `block (3 levels) in <top (required)>'
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  ↳ lib/tasks/db.rake:65:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigint DEFAULT  NOT NULL PRIMARY KEY, "title" )[0m
+  ↳ lib/tasks/db.rake:65:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.6ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:42:in `block (3 levels) in <top (required)>'
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  ↳ lib/tasks/db.rake:65:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigint DEFAULT  NOT NULL PRIMARY KEY, "title" )[0m
+  ↳ lib/tasks/db.rake:65:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.8ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:42:in `block (3 levels) in <top (required)>'
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  ↳ lib/tasks/db.rake:66:in `block (3 levels) in <top (required)>'
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigint DEFAULT  NOT NULL PRIMARY KEY, "title" )[0m
+  ↳ lib/tasks/db.rake:66:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.4ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:42:in `block (3 levels) in <top (required)>'
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  ↳ lib/tasks/db.rake:66:in `block (3 levels) in <top (required)>'
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigint DEFAULT  NOT NULL PRIMARY KEY, "title" )[0m
+  ↳ lib/tasks/db.rake:66:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.5ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:40:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (104.2ms)[0m  [1m[35m          CREATE OR REPLACE FUNCTION seq_gen(shard integer) RETURNS bigint AS $$
+            BEGIN
+              RETURN (((floor(extract(epoch from clock_timestamp()) * 1000) - 1314220021721)::bigint << 23) | (shard << 10)) | mod(nextval('global_id_sequence'), 1024);
+            END;
+          $$ LANGUAGE plpgsql;
+[0m
+  ↳ lib/tasks/db.rake:56:in `block (3 levels) in <top (required)>'
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  ↳ lib/tasks/db.rake:65:in `block (3 levels) in <top (required)>'
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigint DEFAULT seq_gen(10) NOT NULL PRIMARY KEY, "title" text)[0m
+  ↳ lib/tasks/db.rake:65:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMENT ON TABLE "posts" IS 'SHARD-10'[0m
+  ↳ lib/tasks/db.rake:65:in `block (3 levels) in <top (required)>'
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-11-10 14:56:21.123556"], ["updated_at", "2023-11-10 14:56:21.123556"]]
+  ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
+  [1m[35m (2.4ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:40:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.6ms)[0m  [1m[35m          CREATE OR REPLACE FUNCTION seq_gen(shard integer) RETURNS bigint AS $$
+            BEGIN
+              RETURN (((floor(extract(epoch from clock_timestamp()) * 1000) - 1314220021721)::bigint << 23) | (shard << 10)) | mod(nextval('global_id_sequence'), 1024);
+            END;
+          $$ LANGUAGE plpgsql;
+[0m
+  ↳ lib/tasks/db.rake:55:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[35m (36.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigint DEFAULT seq_gen(10) NOT NULL PRIMARY KEY, "title" text)[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMENT ON TABLE "posts" IS 'SHARD-10'[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
+  [1m[35m (2.6ms)[0m  [1m[35mDROP SEQUENCE IF EXISTS global_id_sequence[0m
+  ↳ lib/tasks/db.rake:40:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE SEQUENCE global_id_sequence START WITH 1 INCREMENT BY 1[0m
+  ↳ lib/tasks/db.rake:41:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.3ms)[0m  [1m[35m          CREATE OR REPLACE FUNCTION seq_gen(shard integer) RETURNS bigint AS $$
+            BEGIN
+              RETURN (((floor(extract(epoch from clock_timestamp()) * 1000) - 1314220021721)::bigint << 23) | (shard << 10)) | mod(nextval('global_id_sequence'), 1024);
+            END;
+          $$ LANGUAGE plpgsql;
+[0m
+  ↳ lib/tasks/db.rake:55:in `block (3 levels) in <top (required)>'
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigint DEFAULT seq_gen(10) NOT NULL PRIMARY KEY, "title" text)[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMENT ON TABLE "posts" IS 'SHARD-10'[0m
+  ↳ lib/tasks/db.rake:64:in `block (3 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/db.rake:39:in `block (2 levels) in <top (required)>'
