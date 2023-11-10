@@ -42,7 +42,7 @@ namespace :prj do
 
       if adapter == :OracleEnhanced
         execute <<-SQL
-          CREATE OR replace FUNCTION bitor(a IN NUMBER, b IN NUMBER)
+          CREATE OR REPLACE FUNCTION bitor(a IN NUMBER, b IN NUMBER)
           RETURN NUMBER
           IS
           BEGIN
