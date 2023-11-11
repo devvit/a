@@ -23,6 +23,13 @@ oracle: &oracle
     (CONNECT_DATA=(SERVICE_NAME=xe))
   )"
 
+# sqlplus system/Pas_w0rd@localhost/XE
+oracle11g: &oracle11g
+  adapter: oracle_enhanced
+  username: oracleuser
+  password: oraclepassword
+  database: //localhost/XE
+
 pgsql: &pgsql
   adapter: postgresql
   encoding: unicode
@@ -31,7 +38,7 @@ pgsql: &pgsql
 default: &default
   pool: <%= ENV.fetch('RAILS_MAX_THREADS') %>
   database: blog_development
-  <<: *mssql
+  <<: *oracle11g
 
 development:
   <<: *default

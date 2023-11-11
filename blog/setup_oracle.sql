@@ -1,0 +1,5 @@
+CREATE TABLESPACE indx_oracledb DATAFILE 'indx_oracledb.dbf' SIZE 200M SEGMENT SPACE MANAGEMENT AUTO;
+DROP TABLESPACE indx_oracledb INCLUDING CONTENTS AND DATAFILES;
+CREATE USER oracleuser IDENTIFIED BY oraclepassword DEFAULT TABLESPACE indx_oracledb;
+GRANT connect,dba TO oracleuser;
+

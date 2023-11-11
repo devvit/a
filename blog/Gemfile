@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails'
 
-# gem 'activerecord-oracle_enhanced-adapter'
+gem 'activerecord-oracle_enhanced-adapter'
 gem 'activerecord-sqlserver-adapter'
 gem 'mysql2'
 gem 'pg'

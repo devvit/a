@@ -54,6 +54,10 @@ GEM
     activerecord (7.0.8)
       activemodel (= 7.0.8)
       activesupport (= 7.0.8)
+    activerecord-oracle_enhanced-adapter (7.0.3)
+      activerecord (~> 7.0.0)
+      ruby-oci8
+      ruby-plsql (>= 0.6.0)
     activerecord-sqlserver-adapter (7.0.5.1)
       activerecord (~> 7.0.0)
       tiny_tds
@@ -152,6 +156,8 @@ GEM
       psych (>= 4.0.0)
     reline (0.4.0)
       io-console (~> 0.5)
+    ruby-oci8 (2.2.12)
+    ruby-plsql (0.8.0)
     stringio (3.0.9)
     thor (1.3.0)
     timeout (0.4.1)
@@ -167,6 +173,7 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  activerecord-oracle_enhanced-adapter
   activerecord-sqlserver-adapter
   debug
   mysql2
