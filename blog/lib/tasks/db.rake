@@ -24,7 +24,7 @@ namespace :prj do
     id_gen = lambda {
       begin
         {
-          SQLServer: "(cast((DATEDIFF_BIG(MILLISECOND,'1970-01-01 00:00:00.000', SYSUTCDATETIME()) - #{ApplicationRecord::EPOCH}) * power(2, #{ApplicationRecord::SEQ_LEN + ApplicationRecord::SHARD_LEN}) as bigint) | (#{shard_id} * power(2, #{ApplicationRecord::SEQ_LEN}))) | ((next value for #{ApplicationRecord::SEQ}) % #{ApplicationRecord::PER_SHARD_MSEC})",
+          SQLServer: "(cast((DATEDIFF_BIG(MILLISECOND,'1970-01-01 00:00:00.000', SYSUTCDATETIME()) - #{ApplicationRecord::EPOCH}) * power(2, #{ApplicationRecord::SEQ_LEN + ApplicationRecord::SHARD_LEN}) as bigint) | (#{shard_id} * power(2, #{ApplicationRecord::SEQ_LEN}))) | ((cast(next value for #{ApplicationRecord::SEQ} as bigint)) % #{ApplicationRecord::PER_SHARD_MSEC})",
           Mysql2: "(((cast(UNIX_TIMESTAMP(SYSDATE(3)) * 1000 - #{ApplicationRecord::EPOCH} as unsigned) << #{ApplicationRecord::SEQ_LEN + ApplicationRecord::SHARD_LEN}) | (#{shard_id} << #{ApplicationRecord::SEQ_LEN})) | mod(next value for #{ApplicationRecord::SEQ}, #{ApplicationRecord::PER_SHARD_MSEC}))",
           OracleEnhanced: "bitor(bitor((((sysdate - to_date('01-JAN-1970','DD-MON-YYYY')) * 86400000 + to_number(to_char(systimestamp,'FF3')) - #{ApplicationRecord::EPOCH}) * power(2, #{ApplicationRecord::SEQ_LEN + ApplicationRecord::SHARD_LEN})), #{shard_id} * power(2, #{ApplicationRecord::SEQ_LEN})), MOD(#{ApplicationRecord::SEQ}.nextval, #{ApplicationRecord::PER_SHARD_MSEC}))",
           PostgreSQL: "seq_gen(#{shard_id})"
@@ -90,3 +90,19 @@ namespace :prj do
   task fixtures: :environment do
   end
 end
+
+# select  bitor(bitor((((sysdate - to_date('01-JAN-1970','DD-MON-YYYY')) * 86400000 + to_number(to_char(systimestamp,'FF3')) - 1314220021721) * power(2, 23)), 10 * power(2, 10)), MOD(1, 1024)) as a from dual;
+# select ((sysdate - to_date('01-JAN-1970','DD-MON-YYYY')) * 86400000 + to_number(to_char(systimestamp,'FF3')) - 1314220021721) as t from dual;
+# select  bitor(bitor((385495428053 * power(2, 23)), 10 * power(2, 10)), MOD(1, 1024)) as a from dual;
+
+# select (((cast(UNIX_TIMESTAMP(SYSDATE(3)) * 1000 - 1314220021721 as unsigned) << 23) | (10 << 10)) | mod(1, 1024)) as a;
+# select cast(UNIX_TIMESTAMP(SYSDATE(3)) * 1000 - 1314220021721 as unsigned) as t ;
+# select (((385495428053 << 23) | (10 << 10)) | mod(1, 1024)) as a;
+
+# select (((floor(extract(epoch from clock_timestamp()) * 1000) - 1314220021721)::bigint << 23) | (10 << 10)) | mod(1, 1024) as a;
+# select (floor(extract(epoch from clock_timestamp()) * 1000) - 1314220021721)::bigint as t;
+# select ((385495428053 << 23) | (10 << 10)) | mod(1, 1024) as a;
+
+# select (cast((DATEDIFF_BIG(MILLISECOND,'1970-01-01 00:00:00.000', SYSUTCDATETIME()) - 1314220021721) * power(2, 23) as bigint) | (10 * power(2, 10))) | ((cast(1 as bigint)) % 1024);
+# select DATEDIFF_BIG(MILLISECOND,'1970-01-01 00:00:00.000', SYSUTCDATETIME()) - 1314220021721 as t;
+# select (cast((385495428053) * power(2, 23) as bigint) | (10 * power(2, 10))) | ((cast(1 as bigint)) % 1024);

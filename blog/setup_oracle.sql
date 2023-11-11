@@ -5,6 +5,8 @@ DROP TABLESPACE indx_oracledb INCLUDING CONTENTS AND DATAFILES;
 CREATE USER useroracle IDENTIFIED BY passwordoracle DEFAULT TABLESPACE indx_oracledb;
 GRANT connect,dba TO useroracle;
 
+select 'drop table '||table_name||' cascade constraints;' from user_tables;
+
 select * from global_name;
 
 SELECT * FROM all_users;

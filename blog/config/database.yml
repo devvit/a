@@ -11,8 +11,8 @@ mysql: &mysql
   adapter: mysql2
   encoding: utf8mb4
   username: root
-  socket: /tmp/mysql.sock
-  host: /tmp
+  # socket: /tmp/mysql.sock
+  # host: /tmp
 
 # oracle: &oracle
 #   adapter: oracle_enhanced
