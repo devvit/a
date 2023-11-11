@@ -1,2 +1,5 @@
 blog/log/*
 blog/tmp/*
+*.py[co]
+*~
+*.swp
