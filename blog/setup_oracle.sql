@@ -3,7 +3,6 @@ DROP TABLESPACE indx_oracledb INCLUDING CONTENTS AND DATAFILES;
 CREATE USER oracleuser IDENTIFIED BY oraclepassword DEFAULT TABLESPACE indx_oracledb;
 GRANT connect,dba TO oracleuser;
 
-
 SELECT * FROM all_users;
 SELECT * FROM dba_users;
 SELECT * FROM user_users;

@@ -24,6 +24,7 @@ oracle: &oracle
   )"
 
 # sqlplus system/Pas_w0rd@localhost/XE
+# usql oracle://system:Pas_w0rd@localhost/xe
 oracle11g: &oracle11g
   adapter: oracle_enhanced
   username: oracleuser
