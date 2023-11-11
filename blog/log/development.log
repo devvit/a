@@ -646,3 +646,11 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.9ms | Allocations: 1764)
 
 
+  [1m[35mSQL (0.9ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (30.0ms)[0m  [1m[35mALTER DATABASE [blog_development] SET SINGLE_USER WITH ROLLBACK IMMEDIATE[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (1.5ms)[0m  [1m[35mALTER DATABASE [blog_development] SET SINGLE_USER WITH ROLLBACK IMMEDIATE[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (535.5ms)[0m  [1m[35mCREATE DATABASE [blog_development]  [0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mUSE [master][0m
+  [1m[35mSQL (2.2ms)[0m  [1m[35mCREATE DATABASE [blog_development]  [0m

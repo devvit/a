@@ -90,7 +90,7 @@ DATABASES = {
         # mssql
         'ENGINE': 'mssql',
         'USER': 'sa',
-        'PASSWORD': 'Pa$$w0rd',
+        'PASSWORD': 'Pas_w0rd',
         'PORT': 1433,
         'OPTIONS': {'driver': 'FreeTDS', 'host_is_server': True}
 

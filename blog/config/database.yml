@@ -4,7 +4,7 @@ mssql: &mssql
   adapter: sqlserver
   encoding: utf8
   username: sa
-  password: Pa$$w0rd
+  password: Pas_w0rd
   host: localhost
 
 mysql: &mysql
