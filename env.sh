@@ -1,4 +1,6 @@
 
+# pip install cx_Oracle
+
 export OCI_DIR=$HOME/.oracle/instantclient_19_8
 
 export RAILS_MAX_THREADS=1

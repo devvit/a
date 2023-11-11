@@ -14,21 +14,22 @@ mysql: &mysql
   socket: /tmp/mysql.sock
   host: /tmp
 
-oracle: &oracle
-  adapter: oracle_enhanced
-  username: oracleuser
-  password: oraclepassword
-  database: "(DESCRIPTION=
-    (ADDRESS_LIST=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1521)))
-    (CONNECT_DATA=(SERVICE_NAME=xe))
-  )"
+# oracle: &oracle
+#   adapter: oracle_enhanced
+#   username: useroracle
+#   password: passwordoracle
+#   database: "(DESCRIPTION=
+#     (ADDRESS_LIST=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1521)))
+#     (CONNECT_DATA=(SERVICE_NAME=xe))
+#   )"
 
+# https://github.com/padlik/oracle-12c
 # sqlplus system/Pas_w0rd@localhost/XE
 # usql oracle://system:Pas_w0rd@localhost/xe
-oracle11g: &oracle11g
+oracle18c: &oracle18c
   adapter: oracle_enhanced
-  username: oracleuser
-  password: oraclepassword
+  username: useroracle
+  password: passwordoracle
   database: //localhost/XE
 
 pgsql: &pgsql
@@ -39,7 +40,7 @@ pgsql: &pgsql
 default: &default
   pool: <%= ENV.fetch('RAILS_MAX_THREADS') %>
   database: blog_development
-  <<: *oracle11g
+  <<: *oracle18c
 
 development:
   <<: *default

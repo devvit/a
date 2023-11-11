@@ -26,7 +26,7 @@ namespace :prj do
         {
           SQLServer: "(cast((DATEDIFF_BIG(MILLISECOND,'1970-01-01 00:00:00.000', SYSUTCDATETIME()) - #{ApplicationRecord::EPOCH}) * power(2, #{ApplicationRecord::SEQ_LEN + ApplicationRecord::SHARD_LEN}) as bigint) | (#{shard_id} * power(2, #{ApplicationRecord::SEQ_LEN}))) | ((next value for #{ApplicationRecord::SEQ}) % #{ApplicationRecord::PER_SHARD_MSEC})",
           Mysql2: "(((cast(UNIX_TIMESTAMP(SYSDATE(3)) * 1000 - #{ApplicationRecord::EPOCH} as unsigned) << #{ApplicationRecord::SEQ_LEN + ApplicationRecord::SHARD_LEN}) | (#{shard_id} << #{ApplicationRecord::SEQ_LEN})) | mod(next value for #{ApplicationRecord::SEQ}, #{ApplicationRecord::PER_SHARD_MSEC}))",
-          OracleEnhanced: "bitor(bitor((((sysdate - to_date('01-JAN-1970','DD-MON-YYYY')) * 86400000 + to_number(to_char(systimestamp,'FF3')) - #{ApplicationRecord::EPOCH}) * power(2, #{ApplicationRecord::SEQ_LEN + ApplicationRecord::SHARD_LEN})), #{shard_id} * power(2, #{ApplicationRecord::SEQ_LEN})), MOD(#{ApplicationRecord::SEQ}.nextval, #{ApplicationRecord::PER_SHARD_MSEC})) FROM dual",
+          OracleEnhanced: "bitor(bitor((((sysdate - to_date('01-JAN-1970','DD-MON-YYYY')) * 86400000 + to_number(to_char(systimestamp,'FF3')) - #{ApplicationRecord::EPOCH}) * power(2, #{ApplicationRecord::SEQ_LEN + ApplicationRecord::SHARD_LEN})), #{shard_id} * power(2, #{ApplicationRecord::SEQ_LEN})), MOD(#{ApplicationRecord::SEQ}.nextval, #{ApplicationRecord::PER_SHARD_MSEC}))",
           PostgreSQL: "seq_gen(#{shard_id})"
         }[adapter]
       ensure
@@ -37,19 +37,30 @@ namespace :prj do
     auto_comment = -> { "SHARD-#{shard_id}" }
 
     ActiveRecord::Schema.define do
-      execute "DROP SEQUENCE IF EXISTS #{ApplicationRecord::SEQ}"
-      execute "CREATE SEQUENCE #{ApplicationRecord::SEQ} START WITH 1 INCREMENT BY 1"
-
       if adapter == :OracleEnhanced
         execute <<-SQL
-          CREATE OR REPLACE FUNCTION bitor(a IN NUMBER, b IN NUMBER)
-          RETURN NUMBER
-          IS
+          DECLARE
+            sequence_doesnt_exist EXCEPTION;
+            PRAGMA EXCEPTION_INIT(sequence_doesnt_exist, -2289);
           BEGIN
-            RETURN a + b - bitand(a, b);
+            EXECUTE IMMEDIATE 'DROP SEQUENCE #{ApplicationRecord::SEQ}';
+          EXCEPTION
+            WHEN sequence_doesnt_exist THEN NULL;
           END;
         SQL
+        # execute <<-SQL
+        #   CREATE OR REPLACE FUNCTION bitor(a IN NUMBER, b IN NUMBER)
+        #   RETURN NUMBER
+        #   IS
+        #   BEGIN
+        #     RETURN a + b - bitand(a, b);
+        #   END;
+        # SQL
+      else
+        execute "DROP SEQUENCE IF EXISTS #{ApplicationRecord::SEQ}"
       end
+
+      execute "CREATE SEQUENCE #{ApplicationRecord::SEQ} START WITH 1 INCREMENT BY 1"
 
       if adapter == :PostgreSQL
         execute <<-SQL
