@@ -38,6 +38,9 @@ namespace :prj do
 
     ActiveRecord::Schema.define do
       if adapter == :OracleEnhanced
+        # https://stackoverflow.com/questions/4820183/ora-00933-sql-command-not-properly-ended
+        # https://stackoverflow.com/questions/30044605/what-is-a-good-way-to-do-bitor-in-pl-sql
+        # https://stackoverflow.com/questions/10613846/create-table-with-sequence-nextval-in-oracle
         execute <<-SQL
           DECLARE
             sequence_doesnt_exist EXCEPTION;

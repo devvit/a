@@ -76,8 +76,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'HOST': '127.0.0.1',
-        'NAME': 'blog_development',
+        # 'HOST': '127.0.0.1',
+        # 'NAME': 'blog_development',
 
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
@@ -88,12 +88,19 @@ DATABASES = {
         # 'PASSWORD': '',
 
         # mssql
-        'ENGINE': 'mssql',
-        'USER': 'sa',
-        'PASSWORD': 'Pas_w0rd',
-        'PORT': 1433,
-        'OPTIONS': {'driver': 'FreeTDS', 'host_is_server': True}
+        # 'ENGINE': 'mssql',
+        # 'USER': 'sa',
+        # 'PASSWORD': 'Pas_w0rd',
+        # 'PORT': 1433,
+        # 'OPTIONS': {'driver': 'FreeTDS', 'host_is_server': True}
 
+        # oracle
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'xe',
+        'USER': 'useroracle',
+        'PASSWORD': 'passwordoracle',
+        'HOST': 'localhost',
+        'PORT': 1521
     }
 }
 

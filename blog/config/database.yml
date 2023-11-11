@@ -23,7 +23,6 @@ mysql: &mysql
 #     (CONNECT_DATA=(SERVICE_NAME=xe))
 #   )"
 
-# https://github.com/padlik/oracle-12c
 # sqlplus system/Pas_w0rd@localhost/XE
 # usql oracle://system:Pas_w0rd@localhost/xe
 oracle18c: &oracle18c
