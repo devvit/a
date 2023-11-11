@@ -1,3 +1,4 @@
+#
 
 # ~/.oracle/instantclient_19_8/sqlplus system/Pas_w0rd@localhost/XE
 # usql oracle://useroracle:passwordoracle@localhost/XE
