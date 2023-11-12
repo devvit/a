@@ -18,6 +18,17 @@ module ActiveRecord
         false
       end
     end
+
+    class Mysql2Adapter
+      def supports_insert_returning?
+        # mariadb? && database_version >= "10.5.0"
+        x = super
+        puts '+++', x
+        puts '---', mariadb?
+        puts '---', database_version >= "10.5.0"
+        true
+      end
+    end
   end
 end
 
