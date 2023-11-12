@@ -3,3 +3,4 @@ blog/tmp/*
 *.py[co]
 *~
 *.swp
+Gemfile.lock

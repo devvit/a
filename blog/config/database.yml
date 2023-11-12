@@ -39,7 +39,7 @@ pgsql: &pgsql
 default: &default
   pool: <%= ENV.fetch('RAILS_MAX_THREADS') %>
   database: blog_development
-  <<: *pgsql
+  <<: *mysql
 
 development:
   <<: *default
