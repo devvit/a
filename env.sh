@@ -1,6 +1,7 @@
 #
 
 # ~/.oracle/instantclient_19_8/sqlplus system/Pas_w0rd@localhost/XE
+# usql oracle://system:Pas_w0rd@localhost/XE
 # usql oracle://useroracle:passwordoracle@localhost/XE
 # usql ms://sa:Pas_w0rd@localhost/blog_development
 # pip install cx_Oracle
